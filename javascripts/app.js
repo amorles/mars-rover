@@ -4,6 +4,7 @@ let rover = {
   direction: "N",
   x: 0,
   y: 0,
+  travelLog: []
 }
 // ======================
 
@@ -79,8 +80,20 @@ function moveBackward(rover){
   }
 }
 
-function commands(string){
-  for(i=0, i < string.length, i++ ){
-
+function commandTrack(string) {
+  for (i = 0; i < string.length; ++i) {
+    if (string.charAt(i) == "f") {
+      rover.travelLog.push(x, y);
+      moveForward(rover);
+    }
+         else if (string.charAt(i) == "b") {
+      moveBackward(rover);
+    }
+    else if (string.charAt(i) == "r") {
+      turnRight(rover);
+    }
+    else if (string.charAt(i) == "l") {
+      turnLeft(rover);
+    }
   }
 }
